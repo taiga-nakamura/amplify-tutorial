@@ -1,8 +1,6 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "amplifytutorialf32044bd_identitypool_f32044bd",
-    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "ampliff32044bd",
     "userPoolName": "amplifytutorialf32044bd_userpool_f32044bd",
     "autoVerifiedAttributes": [
@@ -35,11 +33,34 @@
     "userpoolClientSetAttributes": false,
     "sharedId": "f32044bd",
     "resourceName": "amplifytutorialf32044bd",
-    "authSelections": "identityPoolAndUserPool",
-    "useDefault": "default",
+    "authSelections": "userPoolOnly",
+    "useDefault": "manual",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [],
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": {},
+    "hostedUI": false,
+    "authProviders": [],
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    },
+    "permissions": []
   }
 }
